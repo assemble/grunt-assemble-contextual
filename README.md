@@ -39,6 +39,15 @@ If everything was installed and configured correctly, after running `grunt assem
 _This plugin will make the build run slower!_ To disable it simple remove it from the options or remove the `dest` property. 
 
 
+## Option
+### dest
+Type: `String`  
+Default: `assemble.dest + /tmp`
+
+Destination of JSON context.
+
+
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][].
 
@@ -54,7 +63,7 @@ Released under the MIT license
 
 ***
 
-_This file was generated on Monday, October 14, 2013._
+_This file was generated on Tuesday, October 22, 2013._
 
 
 [grunt]: http://gruntjs.com/
