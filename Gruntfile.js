@@ -27,13 +27,42 @@ module.exports = function(grunt) {
         node: true
       },
       all: ['Gruntfile.js', 'index.js']
+    },
+
+    assemble: {
+      options: {
+        plugins: ['./index.js']
+      },
+      contextual: {
+        options: {
+          contextual: {
+            dest: 'test/tmp'
+          }
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'test/fixtures/pages',
+            src: ['**/*.hbs'],
+            dest: 'test/actual'
+          }
+        ]
+      }
+    },
+
+    // Before generating new files, remove any files from previous build.
+    clean: {
+      actual: ['test/actual/**'],
     }
+
   });
 
   // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-readme');
 
   // By default, lint and generate readme.
-  grunt.registerTask('default', ['jshint', 'readme']);
+  grunt.registerTask('default', ['jshint', 'clean', 'assemble', 'readme']);
 };
