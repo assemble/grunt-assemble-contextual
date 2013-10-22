@@ -33,8 +33,7 @@ module.exports = function(config, callback) {
   async.forEachSeries(pages, function(file, next) {
 
     if (page.src !== file.src) {next(); return;}
-
-    var outputDir = path.join(contextual.dest, file.basename);
+    var outputDir = path.join(contextual.dest, path.dirname(file.src), file.basename);
     grunt.file.write(outputDir + '.json', JSON.stringify(sort(options), null, 2));
 
     grunt.verbose.ok('Generating context for: '.yellow + file.dest);
