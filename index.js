@@ -27,20 +27,19 @@ module.exports = function(config, callback) {
   var page       = options.page;
 
   var async      = grunt.util.async;
-  var _          = grunt.util._;
 
-  if(!_.isUndefined(contextual.dest)) {
-    async.forEachSeries(pages, function(file, next) {
+  contextual.dest = contextual.dest || page.filePair.orig.dest + '/tmp';
 
-      if (page.src !== file.src) {next(); return;}
+  async.forEachSeries(pages, function(file, next) {
 
-      var outputDir = path.join(contextual.dest, file.basename);
-      grunt.file.write(outputDir + '.json', JSON.stringify(sort(options), null, 2));
+    if (page.src !== file.src) {next(); return;}
 
-      grunt.verbose.ok('Generating context for: '.yellow + file.dest);
-      next();
-    }, function (err) {
-      callback();
-    });
-  }
+    var outputDir = path.join(contextual.dest, file.basename);
+    grunt.file.write(outputDir + '.json', JSON.stringify(sort(options), null, 2));
+
+    grunt.verbose.ok('Generating context for: '.yellow + file.dest);
+    next();
+  }, function (err) {
+    callback();
+  });
 };
