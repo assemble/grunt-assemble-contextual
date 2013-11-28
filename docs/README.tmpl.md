@@ -2,17 +2,20 @@
 
 > {%= description %}
 
-## Getting Started
+## Quickstart
 {%= _.doc("quickstart.md") %}
 
+## Usage Examples
+{%= _.doc("examples.md") %}
+
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][].
+{%= _.contrib("contributing.md") %}
 
-## Author
+## Assemble plugins
+{%= _.include("related-repos.md") %}
 
-+ [github/jonschlinkert]({%= author.url %})
-+ [twitter/jonschlinkert](http://twitter.com/jonschlinkert)
-
+## Authors
+{%= _.contrib("authors.md") %}
 
 ## License
 {%= copyright %}
@@ -20,9 +23,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ***
 
-_This file was generated on {%= grunt.template.date("fullDate") %}._
-
-
-[grunt]: http://gruntjs.com/
-[Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
-[package.json]: https://npmjs.org/doc/json.html
+{%= _.include("footer.md") %}
