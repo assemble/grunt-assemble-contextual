@@ -5,17 +5,18 @@
 ## Getting Started
 {%= _.doc("quickstart.md") %}
 
-## Option
+## Options
 {%= _.doc("options.md") %}
 
+## Assemble plugins
+{%= _.include("related-repos.md") %}
+
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][].
+Find a bug? Have a feature request? Please [create an Issue](https://github.com/assemble/assemble/issues/new). Pull requests are also encouraged.
+If you find this project useful, please consider "starring" it to show your support! Thanks!
 
-## Author
-
-+ [github/jonschlinkert]({%= author.url %})
-+ [twitter/jonschlinkert](http://twitter.com/jonschlinkert)
-
+## Authors
+{%= _.contrib("authors.md") %}
 
 ## License
 {%= copyright %}
@@ -23,9 +24,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ***
 
-_This file was generated on {%= grunt.template.date("fullDate") %}._
-
-
-[grunt]: http://gruntjs.com/
-[Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
-[package.json]: https://npmjs.org/doc/json.html
+{%= _.include("footer.md") %}

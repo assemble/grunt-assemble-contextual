@@ -50,6 +50,33 @@ module.exports = function(grunt) {
       }
     },
 
+    /**
+     * Pull down a list of repos from Github.
+     * (bundled with the readme task)
+     */
+    repos: {
+      assemble: {
+        options: {
+          username: 'assemble',
+          include: ['contrib'],
+          exclude: ['example', 'rss', 'contextual']
+        },
+        files: {
+          'docs/repos.json': ['repos?page=1&per_page=100']
+        }
+      }
+    },
+
+    /**
+     * Extend context for templates
+     * with repos.json
+     */
+    readme: {
+      options: {
+        metadata: ['docs/repos.json']
+      }
+    },
+
     // Before generating new files, remove any files from previous build.
     clean: {
       actual: ['test/{actual,tmp}/**'],
