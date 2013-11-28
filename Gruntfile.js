@@ -29,39 +29,40 @@ module.exports = function(grunt) {
       all: ['Gruntfile.js', 'index.js']
     },
 
-    /**
-     * Pull down a list of repos from Github.
-     * (bundled with the readme task)
-     */
-    repos: {
-      assemble: {
+    assemble: {
+      options: {
+        plugins: ['./index.js']
+      },
+      contextual: {
         options: {
-          username: 'assemble',
-          include: ['contrib'],
-          exclude: ['example', 'rss', 'contextual']
+          contextual: {
+            dest: 'test/tmp'
+          }
         },
-        files: {
-          'docs/repos.json': ['repos?page=1&per_page=100']
-        }
+        files: [
+          {
+            expand: true,
+            cwd: 'test/fixtures/pages',
+            src: ['**/*.hbs'],
+            dest: 'test/actual'
+          }
+        ]
       }
     },
 
-    /**
-     * Extend context for templates
-     * with repos.json
-     */
-    readme: {
-      options: {
-        metadata: ['docs/repos.json']
-      }
+    // Before generating new files, remove any files from previous build.
+    clean: {
+      actual: ['test/{actual,tmp}/**'],
     }
+
   });
 
   // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-readme');
-  grunt.loadNpmTasks('grunt-repos');
 
   // By default, lint and generate readme.
-  grunt.registerTask('default', ['jshint', 'readme']);
+  grunt.registerTask('default', ['jshint', 'clean', 'assemble', 'readme']);
 };
