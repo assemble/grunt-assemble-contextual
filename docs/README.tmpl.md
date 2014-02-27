@@ -12,8 +12,7 @@
 {%= _.include("related-repos.md") %}
 
 ## Contributing
-Find a bug? Have a feature request? Please [create an Issue](https://github.com/assemble/assemble/issues/new). Pull requests are also encouraged.
-If you find this project useful, please consider "starring" it to show your support! Thanks!
+{%= _.contrib("contributing.md") %}
 
 ## Authors
 {%= _.contrib("authors.md") %}

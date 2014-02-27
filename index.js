@@ -2,7 +2,7 @@
  * Assemble Contrib Plugin: Contextual
  * https://github.com/assemble/assemble-contrib-contextual
  *
- * Copyright (c) 2013 Jon Schlinkert, contributors.
+ * Copyright (c) 2014 Jon Schlinkert, contributors.
  * Licensed under the MIT license.
  */
 
@@ -11,16 +11,16 @@ var path  = require('path');
 var sort  = require('sort-object');
 
 /**
- * @param  {Object}   config
+ * @param  {Object}   params
  * @param  {Function} callback
  * @return {String}   The permalink string
  */
-module.exports = function(config, callback) {
+module.exports = function(params, callback) {
 
   'use strict';
 
-  var options    = config.context;
-  var grunt      = config.grunt;
+  var options    = params.context;
+  var grunt      = params.grunt;
 
   var contextual = options.contextual || {};
   var pages      = options.pages;
