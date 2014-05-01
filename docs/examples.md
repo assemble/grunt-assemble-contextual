@@ -2,7 +2,7 @@
 assemble: {
   options: {
     plugins: ['{%= name %}', 'other/plugins/*.js'],
-    {%= shortname %}: {
+    {%= shortname(name) %}: {
       dest: 'tmp/'
     }
   }

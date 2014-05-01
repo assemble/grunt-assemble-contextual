@@ -6,7 +6,6 @@
  * Licensed under the MIT license.
  */
 
-// Node.js
 var path  = require('path');
 var sort  = require('sort-object');
 
