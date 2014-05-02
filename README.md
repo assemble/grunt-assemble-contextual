@@ -1,4 +1,4 @@
-# assemble-contrib-contextual [![NPM version](https://badge.fury.io/js/assemble-contrib-contextual.png)](http://badge.fury.io/js/assemble-contrib-contextual)
+# assemble-middleware-contextual [![NPM version](https://badge.fury.io/js/assemble-middleware-contextual.png)](http://badge.fury.io/js/assemble-middleware-contextual)
 
 > Generates a JSON file with the context of each page. Basic plugin to help see what's happening in the build.
 
@@ -8,7 +8,7 @@
 In the command line, run:
 
 ```bash
-npm install assemble-contrib-contextual --save
+npm install assemble-middleware-contextual --save
 ```
 
 Next, to register the plugin with Assemble in your project's Gruntfile you can either specify the direct path to the plugin(s) (e.g. `./path/to/plugins/*.js`), or if installed via npm, make sure the plugin is in the `devDependencies` of your project.js package.json, and simply add the module's name to the `plugins` option:
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     assemble: {
       options: {
-        plugins: ['assemble-contrib-contextual', 'other/plugins/*.js'],
+        plugins: ['assemble-middleware-contextual', 'other/plugins/*.js'],
         contextual: {
           dest: 'tmp/'
         }
@@ -73,7 +73,7 @@ Visit [assemble.io/plugins](http:/assemble.io/plugins/) for more information abo
 
 
 ## Contributing
-Find a bug? Have a feature request? Please [create an Issue](git://github.com/assemble/assemble-contrib-contextual/issues).
+Find a bug? Have a feature request? Please [create an Issue](git://github.com/assemble/assemble-middleware-contextual/issues).
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality,
 and run `docs` in the command line to build the docs with [Verb](https://github.com/assemble/verb).

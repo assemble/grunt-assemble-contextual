@@ -1,23 +1,23 @@
 {
-  "name": "assemble-contrib-contextual",
+  "name": "assemble-middleware-contextual",
   "description": "Generates a JSON file with the context of each page. Basic plugin to help see what's happening in the build.",
   "version": "0.2.0",
-  "homepage": "https://github.com/assemble/assemble-contrib-contextual",
+  "homepage": "https://github.com/assemble/assemble-middleware-contextual",
   "author": {
     "name": "Jon Schlinkert",
     "url": "https://github.com/jonschlinkert"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/assemble/assemble-contrib-contextual.git"
+    "url": "git://github.com/assemble/assemble-middleware-contextual.git"
   },
   "bugs": {
-    "url": "git://github.com/assemble/assemble-contrib-contextual/issues"
+    "url": "git://github.com/assemble/assemble-middleware-contextual/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/assemble/assemble-contrib-contextual/blob/master/LICENSE-MIT"
+      "url": "https://github.com/assemble/assemble-middleware-contextual/blob/master/LICENSE-MIT"
     }
   ],
   "main": "index.js",
@@ -25,7 +25,8 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "sort-object": "0.0.6"
+    "sort-object": "0.0.6",
+    "lodash": "^2.4.1"
   },
   "devDependencies": {
     "grunt": "~0.4.4",

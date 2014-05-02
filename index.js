@@ -6,43 +6,43 @@
  * Licensed under the MIT license.
  */
 
+// core modules
 var path  = require('path');
+
+// node modules
 var sort  = require('sort-object');
+var _ = require('lodash');
 
 /**
  * @param  {Object}   params
- * @param  {Function} callback
+ * @param  {Function} next
  * @return {String}   The permalink string
  */
-module.exports = function (config) {
-  var options = config.config;
-  var grunt = config.grunt;
-  var helpers = {};
+module.exports = function (assemble) {
+  "use strict";
 
-  helpers.contextual = function(params, callback) {
+  var options = assemble.config;
+  var grunt = options.grunt;
 
-    'use strict';
+  var middleware = function(params, next) {
 
     var contextual = options.contextual || {};
-    var pages      = options.pages;
     var page       = params.page;
+    var context = params.context;
 
-    var async      = grunt.util.async;
+    contextual.dest = contextual.dest || page.dest + '/tmp';
 
-    contextual.dest = contextual.dest || page.filePair.orig.dest + '/tmp';
+    var outputDir = path.join(contextual.dest, path.dirname(page.src), page.data.basename);
+    grunt.file.write(outputDir + '.json', JSON.stringify(sort(_.omit(context, ['grunt', 'orig'])), null, 2));
 
-    async.forEachSeries(pages, function(file, next) {
+    grunt.verbose.ok('Generating context for: '.yellow + page.dest);
 
-      if (page.src !== file.src) {next(); return;}
-      var outputDir = path.join(contextual.dest, path.dirname(file.src), file.basename);
-      grunt.file.write(outputDir + '.json', JSON.stringify(sort(options), null, 2));
-
-      grunt.verbose.ok('Generating context for: '.yellow + file.dest);
-      next();
-    }, function (err) {
-      callback();
-    });
+    next();
   };
 
-  return helpers;
+  middleware.event = 'page:before:render';
+
+  return {
+    'assemble-middleware-contextual': middleware
+  };
 };
