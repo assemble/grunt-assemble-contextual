@@ -11,6 +11,7 @@ var path  = require('path');
 
 // node modules
 var sort  = require('sort-object');
+var file = require('fs-utils');
 var _ = require('lodash');
 
 /**
@@ -22,7 +23,6 @@ module.exports = function (assemble) {
   "use strict";
 
   var options = assemble.config;
-  var grunt = options.grunt;
 
   var middleware = function(params, next) {
 
@@ -33,9 +33,9 @@ module.exports = function (assemble) {
     contextual.dest = contextual.dest || page.dest + '/tmp';
 
     var outputDir = path.join(contextual.dest, path.dirname(page.src), page.data.basename);
-    grunt.file.write(outputDir + '.json', JSON.stringify(sort(_.omit(context, ['grunt', 'orig'])), null, 2));
+    file.writeJSONSync(outputDir + '.json', sort(_.omit(context, ['grunt', 'orig'])));
 
-    grunt.verbose.ok('Generating context for: '.yellow + page.dest);
+    assemble.log.verbose('Generating context for: '.yellow + page.dest);
 
     next();
   };
