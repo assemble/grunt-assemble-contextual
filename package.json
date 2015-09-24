@@ -1,7 +1,7 @@
 {
   "name": "grunt-assemble-contextual",
   "description": "Generates a JSON file with the context of each page. Basic plugin to help see what's happening in the build.",
-  "version": "0.2.2",
+  "version": "0.1.0",
   "homepage": "https://github.com/assemble/grunt-assemble-contextual",
   "author": {
     "name": "Jon Schlinkert",
