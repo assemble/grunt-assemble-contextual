@@ -1,23 +1,23 @@
 {
-  "name": "grung-assemble-contextual",
+  "name": "grunt-assemble-contextual",
   "description": "Generates a JSON file with the context of each page. Basic plugin to help see what's happening in the build.",
   "version": "0.2.2",
-  "homepage": "https://github.com/assemble/grung-assemble-contextual",
+  "homepage": "https://github.com/assemble/grunt-assemble-contextual",
   "author": {
     "name": "Jon Schlinkert",
     "url": "https://github.com/jonschlinkert"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/assemble/grung-assemble-contextual.git"
+    "url": "git://github.com/assemble/grunt-assemble-contextual.git"
   },
   "bugs": {
-    "url": "git://github.com/assemble/grung-assemble-contextual/issues"
+    "url": "git://github.com/assemble/grunt-assemble-contextual/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/assemble/grung-assemble-contextual/blob/master/LICENSE-MIT"
+      "url": "https://github.com/assemble/grunt-assemble-contextual/blob/master/LICENSE-MIT"
     }
   ],
   "main": "index.js",

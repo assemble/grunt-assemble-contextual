@@ -1,4 +1,4 @@
-# grung-assemble-contextual [![NPM version](https://badge.fury.io/js/grung-assemble-contextual.svg)](http://badge.fury.io/js/grung-assemble-contextual)
+# grunt-assemble-contextual [![NPM version](https://badge.fury.io/js/grunt-assemble-contextual.svg)](http://badge.fury.io/js/grunt-assemble-contextual)
 
 > Generates a JSON file with the context of each page. Basic plugin to help see what's happening in the build.
 
@@ -7,7 +7,7 @@
 In the command line, run:
 
 ```bash
-npm install grung-assemble-contextual --save
+npm install grunt-assemble-contextual --save
 ```
 
 Next, to register the plugin with Assemble in your project's Gruntfile you can either specify the direct path to the plugin(s) (e.g. `./path/to/plugins/*.js`), or if installed via npm, make sure the plugin is in the `devDependencies` of your project.js package.json, and simply add the module's name to the `plugins` option:
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     assemble: {
       options: {
-        plugins: ['grung-assemble-contextual', 'other/plugins/*.js'],
+        plugins: ['grunt-assemble-contextual', 'other/plugins/*.js'],
         contextual: {
           dest: 'tmp/'
         }
@@ -52,11 +52,11 @@ Destination of JSON context.
 
 ## Other grunt-assemble plugins
 
-{%= related(verb.related.list, {remove: name}) %}
+[grunt-assemble-anchors](https://www.npmjs.com/package/grunt-assemble-anchors): Assemble plugin for creating anchor tags from headings in generated html using Cheerio.js. | [homepage](https://github.com/assemble/grunt-assemble-anchors)
 
 ## Contributing
 
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](git://github.com/assemble/grung-assemble-contextual/issues/new).
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](git://github.com/assemble/grunt-assemble-contextual/issues/new).
 
 ## Authors
 
