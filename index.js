@@ -1,48 +1,43 @@
 /*
- * Assemble Contrib Plugin: Contextual
- * https://github.com/assemble/assemble-contrib-contextual
+ * Grunt Assemble Plugin: Contextual
+ * https://github.com/assemble/grunt-assemble-contextual
  *
- * Copyright (c) 2014 Jon Schlinkert, contributors.
+ * Copyright (c) 2014-2015 Jon Schlinkert, contributors.
  * Licensed under the MIT license.
  */
 
-// core modules
 var path  = require('path');
-
-// node modules
 var sort  = require('sort-object');
-var file = require('fs-utils');
-var _ = require('lodash');
 
 /**
  * @param  {Object}   params
- * @param  {Function} next
+ * @param  {Function} callback
  * @return {String}   The permalink string
  */
-module.exports = function (assemble) {
-  "use strict";
+module.exports = function(params, callback) {
 
-  var options = assemble.config;
+  'use strict';
 
-  var middleware = function(params, next) {
+  var options    = params.context;
+  var grunt      = params.grunt;
 
-    var contextual = options.contextual || {};
-    var page       = params.page;
-    var context = params.context;
+  var contextual = options.contextual || {};
+  var pages      = options.pages;
+  var page       = options.page;
 
-    contextual.dest = contextual.dest || page.dest + '/tmp';
+  var async      = grunt.util.async;
 
-    var outputDir = path.join(contextual.dest, path.dirname(page.src), page.data.basename);
-    file.writeJSONSync(outputDir + '.json', sort(_.omit(context, ['grunt', 'orig'])));
+  contextual.dest = contextual.dest || page.filePair.orig.dest + '/tmp';
 
-    assemble.log.verbose('Generating context for: '.yellow + page.dest);
+  async.forEachSeries(pages, function(file, next) {
 
+    if (page.src !== file.src) {next(); return;}
+    var outputDir = path.join(contextual.dest, path.dirname(file.src), file.basename);
+    grunt.file.write(outputDir + '.json', JSON.stringify(sort(options), null, 2));
+
+    grunt.verbose.ok('Generating context for: '.yellow + file.dest);
     next();
-  };
-
-  middleware.event = 'page:before:render';
-
-  return {
-    'assemble-middleware-contextual': middleware
-  };
+  }, function (err) {
+    callback();
+  });
 };

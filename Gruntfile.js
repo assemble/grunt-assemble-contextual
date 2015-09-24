@@ -60,8 +60,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-assemble');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-verb');
 
   // By default, lint and generate readme.
-  grunt.registerTask('default', ['jshint', 'clean', 'assemble', 'verb']);
+  grunt.registerTask('default', ['jshint', 'clean', 'assemble']);
 };

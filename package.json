@@ -1,23 +1,23 @@
 {
-  "name": "assemble-middleware-contextual",
+  "name": "grung-assemble-contextual",
   "description": "Generates a JSON file with the context of each page. Basic plugin to help see what's happening in the build.",
   "version": "0.2.2",
-  "homepage": "https://github.com/assemble/assemble-middleware-contextual",
+  "homepage": "https://github.com/assemble/grung-assemble-contextual",
   "author": {
     "name": "Jon Schlinkert",
     "url": "https://github.com/jonschlinkert"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/assemble/assemble-middleware-contextual.git"
+    "url": "git://github.com/assemble/grung-assemble-contextual.git"
   },
   "bugs": {
-    "url": "git://github.com/assemble/assemble-middleware-contextual/issues"
+    "url": "git://github.com/assemble/grung-assemble-contextual/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/assemble/assemble-middleware-contextual/blob/master/LICENSE-MIT"
+      "url": "https://github.com/assemble/grung-assemble-contextual/blob/master/LICENSE-MIT"
     }
   ],
   "main": "index.js",
@@ -33,12 +33,19 @@
     "grunt": "~0.4.4",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.10.0",
-    "grunt-verb": "~0.2.2",
-    "grunt-assemble": "^0.1.12"
+    "grunt-assemble": "^0.4.0"
   },
   "keywords": [
     "assemble",
     "assembleplugin",
     "plugin"
-  ]
+  ],
+  "verb": {
+    "related": {
+      "list": [
+        "grunt-assemble-anchors",
+        "grunt-assemble-contextual"
+      ]
+    }
+  }
 }
